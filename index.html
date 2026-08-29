@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ju Lima Unhas</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff5f8;
+  color: #4a2635;
+  text-align: center;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 25px 20px;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+p {
+  margin-top: 5px;
+}
+
+button, a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 14px;
+  background: #d889a5;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover, a:hover {
+  opacity: 0.85;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 18px;
+  margin-top: 20px;
+  box-shadow: 0 3px 12px #00000015;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>💅 Ju Lima Unhas</h1>
+  <p>Manicure • Pedicure • Alongamento</p>
+  <p>📍 Camanducaia - MG</p>
+
+  <div class="card">
+    <h2>✨ Agende seu horário</h2>
+
+    <button onclick="mostrar('servicos')">
+      💅 Ver serviços
+    </button>
+
+    <button onclick="mostrar('agendamento')">
+      📅 Agendar horário
+    </button>
+
+    <button onclick="mostrar('sinal')">
+      💰 Ver informações do sinal
+    </button>
+
+    <a href="https://wa.me/5535999112279" target="_blank">
+      💬 Falar pelo WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/ju.lima_unhas/" target="_blank">
+      📸 Instagram
+    </a>
+  </div>
+
+  <div id="servicos" class="card hidden">
+    <h2>💅 Serviços</h2>
+    <p>Manicure</p>
+    <p>Pedicure</p>
+    <p>Alongamento</p>
+    <p>Manutenção</p>
+  </div>
+
+  <div id="agendamento" class="card hidden">
+    <h2>📅 Agendamento</h2>
+
+    <input id="nome" placeholder="Seu nome"
+    style="width:90%;padding:14px;border-radius:10px;border:1px solid #ddd;">
+
+    <br><br>
+
+    <input id="data" type="date"
+    style="width:90%;padding:14px;border-radius:10px;border:1px solid #ddd;">
+
+    <br><br>
+
+    <input id="horario" type="time"
+    style="width:90%;padding:14px;border-radius:10px;border:1px solid #ddd;">
+
+    <button onclick="confirmar()">
+      ✅ Confirmar pelo WhatsApp
+    </button>
+  </div>
+
+  <div id="sinal" class="card hidden">
+    <h2>💰 Sinal</h2>
+    <p>O valor do sinal será informado no momento do agendamento.</p>
+    <p>Após o pagamento, o horário será reservado.</p>
+  </div>
+
+</div>
+
+<script>
+function mostrar(id) {
+  document.getElementById(id).classList.toggle("hidden");
+}
+
+function confirmar() {
+
+  let nome = document.getElementById("nome").value;
+  let data = document.getElementById("data").value;
+  let horario = document.getElementById("horario").value;
+
+  if (!nome || !data || !horario) {
+    alert("Preencha seu nome, data e horário.");
+    return;
+  }
+
+  let mensagem =
+    "Olá, Ju! 💅 Quero agendar um horário.%0A%0A" +
+    "Nome: " + nome +
+    "%0AData: " + data +
+    "%0AHorário: " + horario;
+
+  window.open(
+    "https://wa.me/5535999112279?text=" + mensagem,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
